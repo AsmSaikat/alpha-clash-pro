@@ -1,31 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="blue">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alpha Clash Pro</title>
+
     <!-- daisy UI and Tailwind -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.6.1/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="shortcut icon" href="images/play.png" type="images/png">
+    
 
     <!-- custom css -->
     <link rel="stylesheet" href="styles/styles.css">
 </head>
-</head>
+
 <body class="font-poppins">
-    <main class="min-h-screen bg-[#010313] bg-[url(images/background.png)] bg-no-repeat bg-center">
+    <h2 id="home-button" onclick="home()" class="btn absolute top-4 left-4">Home</h2>
+    <main class="min-h-screen bg-[#010313] bg-[url(images/bg.jpg)] bg-no-repeat bg-center">
+
         <!-- home screen -->
         <section id="home-screen" class="min-h-screen text-white flex justify-center items-center">
             <div class="flex flex-col items-center gap-10">
-                <h1 class="text-8xl font-anton uppercase  text-[17vh]">Alphabet Clash</h1>
-                <p>Unleash Your Keyboard Kung Fu : Press “Enter” to Play</p>
-                <button onclick="play()" class="btn bg-white text-black">Play Now</button>
+                <h1 class="text-8xl font-anton uppercase">Alphabet Clash</h1>
+                <p class="text-center">Unleash Your Keyboard Kung Fu
+                    <br>
+                    <br>
+                    Press <button onclick="play()" class="btn p-2 bg-white text-black ">Play Now</button>  to Play</p>
+                
             </div>
         </section>
-    
-        <!-- playground -->
-        <section id="play-ground" class="play-ground hidden">
 
+        <!-- playground start-->
+        <section id="play-ground" class="hidden">
             <div class="flex flex-col items-center gap-20 pt-20">
                 <!-- screen -->
                 <div
@@ -35,15 +43,16 @@
                         </p>
                     </div>
                     <div class="flex justify-center items-center h-full">
-                        <p id="current-alphabet" class="text-black text-9xl font-bold uppercase mb-10">Y</p>
+                        <p id="current-alphabet" class="text-black text-9xl font-bold uppercase pb-10">Y</p>
                     </div>
                 </div>
 
                 <!-- keyboard start-->
                 <div>
+                    <h3 class="text-xl text-white mb-4 text-center">Press <span class=" border-2 border-black rounded-md p-2 text-lg bg-black">Esc</span> to End the Game</h3>
                     <div class="flex justify-center gap-1 my-1 w-full">
-                        <kbd id="w" class="kbd">w</kbd>
                         <kbd id="q" class="kbd">q</kbd>
+                        <kbd id="w" class="kbd">w</kbd>
                         <kbd id="e" class="kbd">e</kbd>
                         <kbd id="r" class="kbd">r</kbd>
                         <kbd id="t" class="kbd">t</kbd>
@@ -52,8 +61,8 @@
                         <kbd id="i" class="kbd">i</kbd>
                         <kbd id="o" class="kbd">o</kbd>
                         <kbd id="p" class="kbd">p</kbd>
-                      </div> 
-                      <div class="flex justify-center gap-1 my-1 w-full">
+                    </div>
+                    <div class="flex justify-center gap-1 my-1 w-full">
                         <kbd id="a" class="kbd">a</kbd>
                         <kbd id="s" class="kbd">s</kbd>
                         <kbd id="d" class="kbd">d</kbd>
@@ -63,8 +72,8 @@
                         <kbd id="j" class="kbd">j</kbd>
                         <kbd id="k" class="kbd">k</kbd>
                         <kbd id="l" class="kbd">l</kbd>
-                      </div> 
-                      <div class="flex justify-center gap-1 my-1 w-full">
+                    </div>
+                    <div class="flex justify-center gap-1 my-1 w-full">
                         <kbd id="z" class="kbd">z</kbd>
                         <kbd id="x" class="kbd">x</kbd>
                         <kbd id="c" class="kbd">c</kbd>
@@ -73,17 +82,21 @@
                         <kbd id="n" class="kbd">n</kbd>
                         <kbd id="m" class="kbd">m</kbd>
                         <kbd id="/" class="kbd">/</kbd>
-                      </div>
+                    </div>
                 </div>
-                <!-- keyboard end-->
+                <!-- keyboard end -->
 
-                <!-- life & score-->
+                <!-- life score -->
                 <div class="flex justify-between w-3/4">
-                    <button class="btn rounded-full bg-purple-700 text-white px-4">
+
+                    <!-- display Life -->
+                    <button class="btn rounded-full bg-purple-500 text-white px-4">
                         Life
                         <img src="images/heart.svg" alt="">
-                        <span id="life-point">5</span>
+                        <span id="current-life">5</span>
                     </button>
+
+                    <!-- display Score -->
                     <button class="btn rounded-full bg-purple-700 text-white px-4">
                         Score
                         <img src="images/dollar.svg" alt="">
@@ -92,25 +105,24 @@
 
                 </div>
             </div>
-
         </section>
-        
-        <!-- play score -->
-        <section id="final-score" class="score flex justify-center items-center min-h-screen hidden">
-            <div class="text-white text-center space-y-6 bg-[#FFFFFF33] p-4 rounded-lg" style="background: linear-gradient(121deg, rgba(255, 255, 255, 0.56) 0%, rgba(152, 151, 151, 0.00) 102.2%);">
-                <h4 class="text-3xl">Game Over Nigga!</h4>
+        <!-- playground end -->
+
+        <!-- final Score start -->
+        <section id="final-score" class="flex justify-center items-center min-h-screen hidden">
+            <div class="text-white text-center space-y-6 bg-[#FFFFFF33] p-4 rounded-lg">
+                <h4 class="text-3xl">Game Over !</h4>
                 <h1 class="text-8xl">
                     <span class="font-extrabold">Score:</span>
-                    <span id="your-score">14</span>
+                    <span id="last-score" class="font-extrabold">0</span>
                 </h1>
                 <button onclick="play()" class="btn">Play Again</button>
-                <p>Practice will make you a Pro</p>
+                <p>You can do Better!</p>
             </div>
         </section>
-
     </main>
-
-    <script src="script/alpha-clash.js"></script>
-    <script src="script/utility.js"></script>
+    <script src="scripts/utility.js"></script>
+    <script src="scripts/alpha-clash.js"></script>
 </body>
+
 </html>

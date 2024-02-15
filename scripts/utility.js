@@ -3,26 +3,30 @@ function hideElementById(elementId) {
     element.classList.add('hidden');
 }
 
+function playEndAudio (){
+    const audio = new Audio('../audio/Alpha Clash_4.mp3');
+    audio.play();
+}
+function playKeyAudio(){
+    const audio = new Audio('../audio/Alpha Clash_3.mp3');
+    audio.play();
+}
+
 function showElementById(elementId) {
     const element = document.getElementById(elementId);
     element.classList.remove('hidden');
 }
 
-function setBackgroundColorById(elementId) {
+function setBackgroundColorById(elementId){
     const element = document.getElementById(elementId);
     element.classList.add('bg-orange-400');
 }
 
-function removeBackgroundColorById(elementId) {
+function removeBackgroundColorById(elementId){
     const element = document.getElementById(elementId);
     element.classList.remove('bg-orange-400');
 }
 
-function getElementTextValueById (elementId){
-    const element = document.getElementById(elementId);
-    const elementValueText = element.innerText;
-    return elementValueText;
-}
 
 function getTextElementValueById(elementId){
     const element = document.getElementById(elementId);
@@ -31,21 +35,24 @@ function getTextElementValueById(elementId){
     return value;
 }
 
-function setTextElementValueById (elementId, value){
+function setTextElementValueById(elementId, value){
     const element = document.getElementById(elementId);
     element.innerText = value;
 }
 
-function getARandomAlphabet() {
+function getElementTextById(elementId){
+    const element = document.getElementById(elementId);
+    const text = element.innerText;
+    return text;
+}
+
+function getARandomAlphabet(){
     const alphabetString = 'abcdefghijklmnopqrstuvwxyz';
     const alphabets = alphabetString.split('');
 
-    const randomNumber = Math.random()*25
+    const randomNumber = Math.random()*25;
     const index = Math.round(randomNumber);
-    
-    const alphabet = alphabets[index];
-    console.log(alphabet);
-    return alphabet
-}
 
-document.getElementById('')
+    const alphabet = alphabets[index];
+    return alphabet;
+}
